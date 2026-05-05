@@ -1,0 +1,7 @@
+# Snyk Code/DeepCode ignores.
+#
+# This helper intentionally uses cleartext 127.0.0.1 sockets and HttpClient
+# requests to verify the project's HTTP/1.1 server in black-box tests. Keeping
+# the ignore at helper-file scope leaves production code and ordinary tests
+# visible to SAST while suppressing false positives for local protocol probes.
+src/test/java/io/github/arthurhoch/kiss/server/protocol/http11/LoopbackHttpTestClient.java
