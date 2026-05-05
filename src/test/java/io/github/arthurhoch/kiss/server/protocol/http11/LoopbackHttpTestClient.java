@@ -126,13 +126,24 @@ final class LoopbackHttpTestClient {
         int lineEnd = head.indexOf("\r\n");
         int firstSpace = head.indexOf(' ');
         int secondSpace = head.indexOf(' ', firstSpace + 1);
-        int status = Integer.parseInt(head.substring(firstSpace + 1, secondSpace));
+        if (lineEnd < 0 || firstSpace < 0 || secondSpace <= firstSpace) {
+            throw new IOException("invalid response status line");
+        }
+        int status = parseInt(head.substring(firstSpace + 1, secondSpace), "status");
         Map<String, String> headers = parseHeaders(head.substring(lineEnd + 2));
         int contentLength = headers.containsKey("content-length")
-                ? Integer.parseInt(headers.get("content-length"))
+                ? parseInt(headers.get("content-length"), "content-length")
                 : 0;
         byte[] body = input.readNBytes(contentLength);
         return new RawResponse(status, headers, new String(body, StandardCharsets.UTF_8));
+    }
+
+    private static int parseInt(String value, String field) throws IOException {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            throw new IOException("invalid response " + field + ": " + value, e);
+        }
     }
 
     private static String readHead(InputStream input) throws IOException {

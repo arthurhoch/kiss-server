@@ -923,7 +923,7 @@ public final class Http11ServerEngine {
         }
     }
 
-    private final class EngineHandle implements ServerHandle {
+    private static final class EngineHandle implements ServerHandle {
         private final ServerSocketChannel serverChannel;
         private final Selector selector;
         private final ExecutorStrategy executorStrategy;

@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
@@ -147,11 +148,9 @@ public final class Http11ResponseWriter {
     }
 
     private static int headerEnd(byte[] response) {
-        for (int i = 0; i <= response.length - HEADER_END.length; i++) {
-            if (response[i] == '\r'
-                    && response[i + 1] == '\n'
-                    && response[i + 2] == '\r'
-                    && response[i + 3] == '\n') {
+        int lastStart = response.length - HEADER_END.length;
+        for (int i = 0; i <= lastStart; i++) {
+            if (Arrays.equals(response, i, i + HEADER_END.length, HEADER_END, 0, HEADER_END.length)) {
                 return i;
             }
         }

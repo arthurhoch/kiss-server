@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -83,6 +84,16 @@ class Http11ResponseWriterTest {
         assertTrue(headRaw.contains("Connection: close\r\n"));
         assertTrue(headRaw.contains("Content-Length: 2\r\n"));
         assertTrue(headRaw.endsWith("\r\n\r\n"));
+    }
+
+    @Test
+    void writesMalformedFastResponseAsIs() throws Exception {
+        byte[] fast = "OK".getBytes(StandardCharsets.US_ASCII);
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+        new Http11ResponseWriter().writeFast(output, fast, true, true);
+
+        assertArrayEquals(fast, output.toByteArray());
     }
 
     private static void assertRaw(Response response, String statusLine, String body) throws Exception {

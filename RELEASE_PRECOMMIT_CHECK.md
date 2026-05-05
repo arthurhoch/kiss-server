@@ -26,7 +26,7 @@ mvn -B clean verify
 Result: PASS
 
 - Project built as `KissServer 0.1.0`.
-- Tests run: 59.
+- Tests run: 60.
 - Failures: 0.
 - Errors: 0.
 - Skipped: 0.
@@ -108,6 +108,25 @@ Production dependencies remain zero.
   - `GPG_PASSPHRASE`
 - No secrets are hardcoded.
 
+## CodeQL And Dependency Alert Cleanup
+
+- `Http11ResponseWriter` fast-response header scanning now uses bounded range comparison instead of direct `i + n` array indexing.
+- `Http11ServerEngine.EngineHandle` is now a static nested class.
+- `RouteMatch` and `ParsedRequest` keep trusted hot-path construction without unused constructor parameters.
+- `BufferPool` now uses `ArrayDeque.add` after its explicit pool-size check instead of ignoring the return value from `offer`.
+- `LoopbackHttpTestClient` validates response status-line shape and wraps malformed numeric response fields in `IOException`.
+- Added a regression test for malformed fast responses without an HTTP header terminator.
+- The isolated Undertow benchmark reference app now uses `io.undertow:undertow-core:2.4.0.RC4`, above the `2.4.0.Beta1` fixed baseline for CVE-2026-3260.
+
+Additional validation:
+
+```bash
+mvn -B -Dtest=Http11ResponseWriterTest,RouteTest,RequestResponseContextTest,BufferPoolTest test
+mvn -B -f benchmarks/apps/undertow-app/pom.xml package
+```
+
+Result: PASS
+
 ## Git And Security Hygiene
 
 - `.gitignore` excludes:
@@ -126,8 +145,16 @@ Production dependencies remain zero.
 
 - `pom.xml`
 - `benchmarks/apps/kiss-server-app/pom.xml`
+- `benchmarks/apps/undertow-app/pom.xml`
 - `README.md`
 - `CHANGELOG.md`
+- `src/main/java/io/github/arthurhoch/kiss/server/buffer/BufferPool.java`
+- `src/main/java/io/github/arthurhoch/kiss/server/protocol/http11/Http11ResponseWriter.java`
+- `src/main/java/io/github/arthurhoch/kiss/server/protocol/http11/Http11ServerEngine.java`
+- `src/main/java/io/github/arthurhoch/kiss/server/protocol/http11/ParsedRequest.java`
+- `src/main/java/io/github/arthurhoch/kiss/server/routing/RouteMatch.java`
+- `src/test/java/io/github/arthurhoch/kiss/server/protocol/http11/Http11ResponseWriterTest.java`
+- `src/test/java/io/github/arthurhoch/kiss/server/protocol/http11/LoopbackHttpTestClient.java`
 - `docs/index.md`
 - `docs/AI_QUICKSTART.md`
 - `docs/getting-started.md`

@@ -29,7 +29,7 @@ public final class BufferPool {
 
     private synchronized void release(byte[] bytes) {
         if (bytes.length == bufferSize && pooled.size() < maxPooled) {
-            pooled.offer(bytes);
+            pooled.add(bytes);
         }
     }
 

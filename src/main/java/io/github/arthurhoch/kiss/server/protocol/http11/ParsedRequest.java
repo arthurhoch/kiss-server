@@ -23,8 +23,7 @@ public final class ParsedRequest {
             Map<String, String> headers,
             byte[] body
     ) {
-        this(method, target, version, headers == null ? Map.of() : Map.copyOf(headers),
-                body == null ? EMPTY_BODY : body.clone(), true);
+        this(method, target, version, headers, body, true);
     }
 
     private ParsedRequest(
@@ -33,13 +32,21 @@ public final class ParsedRequest {
             String version,
             Map<String, String> headers,
             byte[] body,
-            boolean trusted
+            boolean copyValues
     ) {
         this.method = Objects.requireNonNull(method, "method");
         this.target = Objects.requireNonNull(target, "target");
         this.version = Objects.requireNonNull(version, "version");
-        this.headers = Objects.requireNonNull(headers, "headers");
-        this.body = Objects.requireNonNull(body, "body");
+        if (headers == null || headers.isEmpty()) {
+            this.headers = Map.of();
+        } else {
+            this.headers = copyValues ? Map.copyOf(headers) : headers;
+        }
+        if (body == null || body.length == 0) {
+            this.body = EMPTY_BODY;
+        } else {
+            this.body = copyValues ? body.clone() : body;
+        }
     }
 
     static ParsedRequest trusted(
@@ -50,7 +57,7 @@ public final class ParsedRequest {
             byte[] body
     ) {
         Map<String, String> safeHeaders = headers == null ? Map.of() : Collections.unmodifiableMap(headers);
-        return new ParsedRequest(method, target, version, safeHeaders, body == null ? EMPTY_BODY : body, true);
+        return new ParsedRequest(method, target, version, safeHeaders, body == null ? EMPTY_BODY : body, false);
     }
 
     static byte[] emptyBody() {
