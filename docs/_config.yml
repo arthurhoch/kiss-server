@@ -1,5 +1,5 @@
 title: KissServer
-description: A tiny, zero-dependency Java 17+ HTTP/1.1 socket server library.
+description: Tiny zero-dependency Java 17+ HTTP/1.1 server library for simple REST-style applications.
 url: "https://arthurhoch.github.io"
 baseurl: "/kiss-server"
 theme: jekyll-theme-primer

@@ -25,6 +25,7 @@ Manual index of every Markdown file in the KissServer repository and its purpose
 | `CHANGELOG.md` | Version history |
 | `SECURITY.md` | Security policy |
 | `CONTRIBUTING.md` | Contribution rules |
+| `CODE_OF_CONDUCT.md` | Community conduct expectations |
 
 ## `.github/`
 

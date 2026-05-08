@@ -1,12 +1,25 @@
 # KissServer
 
-A tiny, zero-production-dependency Java 17+ HTTP/1.1 server library for simple APIs, local tools, MVPs, internal services, embedded use cases, and AI-generated applications.
+Tiny zero-dependency Java 17+ HTTP/1.1 server library for simple REST-style applications.
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.arthurhoch/kiss-server.svg)](https://central.sonatype.com/artifact/io.github.arthurhoch/kiss-server)
+[![Java](https://img.shields.io/badge/Java-17%2B-blue.svg)](https://openjdk.org/projects/jdk/17/)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE.txt)
+[![CI](https://github.com/arthurhoch/kiss-server/actions/workflows/ci.yml/badge.svg)](https://github.com/arthurhoch/kiss-server/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/arthurhoch/kiss-server/actions/workflows/codeql.yml/badge.svg)](https://github.com/arthurhoch/kiss-server/actions/workflows/codeql.yml)
+[![Docs](https://github.com/arthurhoch/kiss-server/actions/workflows/pages.yml/badge.svg)](https://github.com/arthurhoch/kiss-server/actions/workflows/pages.yml)
+
+Part of the KISS Java Libraries family: small, explicit, zero-dependency Java 17+ libraries. Each project is independent. Use only the modules you need.
 
 KissServer exists for cases where a small, explicit Java HTTP server is enough and a framework runtime would be more than the job needs. It uses a Java 17-compatible NIO HTTP/1.1 engine, a small public API, bounded parser limits, and an application-provided or server-owned `ExecutorService` for normal route handlers.
 
-Status: initial HTTP/1.1 core is ready for the first `0.1.0` release.
+Latest stable release: `0.1.0`.
 
-KissServer is a sibling of [kiss-requests](https://github.com/arthurhoch/kiss-requests) and [kiss-json](https://github.com/arthurhoch/kiss-json). It does not depend on either project.
+The `0.1.0` artifact is published on Maven Central and the `v0.1.0` GitHub release is available.
+
+## Why this exists
+
+KissServer exists for simple APIs, local tools, MVPs, internal services, embedded use cases, and AI-generated applications where a small HTTP/1.1 server is enough and a framework runtime would be more than the job needs.
 
 ## Highlights
 
@@ -21,7 +34,16 @@ KissServer is a sibling of [kiss-requests](https://github.com/arthurhoch/kiss-re
 - Android-compatible by design, pending real device or emulator validation.
 - GraalVM Native Image friendly by design, pending validated example or CI support.
 
-## Maven
+## Design Principles
+
+- KISS: keep routing, request handling, and runtime behavior explicit.
+- Zero production dependencies.
+- Java 17+ standard APIs and a Java 17-compatible NIO engine.
+- Bounded buffers, parser limits, and predictable shutdown.
+- Small public API with no Servlet API, dependency injection container, annotation scanning, or framework runtime.
+- Fast path for exact static responses without complicating normal routes.
+
+## Installation
 
 ```xml
 <dependency>
@@ -227,6 +249,18 @@ For local tools, tests, internal services, and embedded uses, KissServer can bin
 - Annotation scanning or dependency injection container.
 - Reflection in the hot path.
 
+## Related KISS Projects
+
+These libraries are independent, zero-dependency Java 17+ projects. Use only the modules you need.
+
+| Project | Purpose |
+|---|---|
+| [kiss-json](https://github.com/arthurhoch/kiss-json) | Field-based JSON serialization and deserialization. |
+| [kiss-requests](https://github.com/arthurhoch/kiss-requests) | Simple HTTP client built on Java HttpClient. |
+| [kiss-server](https://github.com/arthurhoch/kiss-server) | Small HTTP/1.1 server for simple REST-style applications. |
+| [kiss-config](https://github.com/arthurhoch/kiss-config) | Configuration loading from properties, .env files, system properties, and environment variables. |
+| [kiss-binary](https://github.com/arthurhoch/kiss-binary) | Explicit binary IO for primitive binary formats. |
+
 ## Documentation
 
 - [Documentation Index](docs/index.md)
@@ -249,13 +283,29 @@ For local tools, tests, internal services, and embedded uses, KissServer can bin
 
 ## Maven Central Status
 
-Release configuration is present. Publishing requires Sonatype Central Portal setup, GPG signing setup, and GitHub repository secrets.
+Version `0.1.0` is published on Maven Central. Release automation remains tag-based through the configured Maven Central workflow and requires the documented Central Portal and GPG secrets.
+
+## Requirements
+
+- Java 17 or newer for the main artifact.
+- Maven for building from source.
+- Optional JDK 21 only for application-provided virtual-thread executors.
 
 ## Build
 
 ```bash
-mvn -B verify
+mvn -B clean verify
 ```
+
+Additional configured profile:
+
+```bash
+mvn -Psecurity verify
+```
+
+## Security and Quality
+
+GitHub Actions run CI, CodeQL, GitHub Pages deployment, and Maven Central release readiness workflows. Dependabot tracks Maven and GitHub Actions updates. OWASP Dependency-Check is available through the `security` Maven profile.
 
 ## License
 

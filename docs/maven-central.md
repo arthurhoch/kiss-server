@@ -32,4 +32,4 @@ The release profile signs and publishes, so it needs GPG and Central configurati
 
 ## Status
 
-Release configuration is present. External account, namespace, key, and secret setup still must be completed before publishing.
+Version `0.1.0` is published on Maven Central. External account, namespace, key, and secret setup must remain valid for future releases.

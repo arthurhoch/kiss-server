@@ -4,9 +4,9 @@
 
 | Version | Supported |
 | ------- | --------- |
-| 0.1.x   | Development, not released |
+| 0.1.x   | Supported |
 
-KissServer has not been published to Maven Central yet. Security support applies to released versions once artifacts are available. Before 1.0, APIs and behavior may change.
+KissServer `0.1.0` is published to Maven Central. Security support applies to released `0.1.x` artifacts and the active development line. Before 1.0, APIs and behavior may change.
 
 ## Reporting a Vulnerability
 
