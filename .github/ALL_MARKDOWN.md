@@ -140,6 +140,7 @@ Manual index of every Markdown file in the KissServer repository and its purpose
 | `docs/benchmarking.md` | Benchmarking plan |
 | `docs/code-cleanup.md` | Safe code cleanup, coverage, and deletion policy |
 | `docs/security.md` | Security design |
+| `docs/security-hardening.md` | Security workflow hardening, local checks, and manual GitHub settings |
 | `docs/error-handling.md` | Error handling guide |
 | `docs/routing.md` | Routing guide |
 | `docs/fast-path.md` | Fast path guide |

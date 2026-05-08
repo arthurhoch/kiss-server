@@ -61,6 +61,7 @@ server.start(8080).await();
 | [Benchmarking](benchmarking.md) | Benchmark plan and commands |
 | [Safe Code Cleanup](code-cleanup.md) | Coverage, quality checks, and deletion policy |
 | [Security](security.md) | Limits and safe defaults |
+| [Security Hardening](security-hardening.md) | CodeQL build, Dependency Review, OpenSSF Scorecard, and manual GitHub setup |
 | [Error Handling](error-handling.md) | Error categories and mapping |
 | [Deployment](deployment.md) | Reverse proxy recommendation |
 | [Android](android.md) | Android compatibility notes |

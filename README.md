@@ -277,6 +277,7 @@ These libraries are independent, zero-dependency Java 17+ projects. Use only the
 - [Performance](docs/performance.md)
 - [Benchmarking](docs/benchmarking.md)
 - [Safe Code Cleanup](docs/code-cleanup.md)
+- [Security Hardening](docs/security-hardening.md)
 - [Android](docs/android.md)
 - [Native Image](docs/native-image.md)
 - [Deployment](docs/deployment.md)
@@ -309,7 +310,7 @@ mvn -Psecurity verify
 
 ## Security and Quality
 
-GitHub Actions run CI, CodeQL, GitHub Pages deployment, and Maven Central release readiness workflows. Dependabot tracks Maven and GitHub Actions updates. OWASP Dependency-Check is available through the `security` Maven profile, and SpotBugs is available through the optional `spotbugs` profile.
+GitHub Actions run CI, CodeQL, Dependency Review, OpenSSF Scorecard, GitHub Pages deployment, and Maven Central release readiness workflows. Dependabot tracks Maven and GitHub Actions updates. OWASP Dependency-Check is available through the `security` Maven profile, and SpotBugs is available through the optional `spotbugs` profile. See [Security Hardening](docs/security-hardening.md).
 
 JaCoCo coverage is generated during `verify`. Read the HTML report at `target/site/jacoco/index.html`; use `target/site/jacoco/jacoco.xml` for Codecov or Sonar if those services are configured later. No coverage badge is shown until a real external coverage service is configured.
 
