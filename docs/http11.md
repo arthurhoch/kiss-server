@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # HTTP/1.1
 
 KissServer is HTTP/1.1 first.

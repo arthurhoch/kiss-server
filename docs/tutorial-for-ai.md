@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Tutorial For AI Agents And Humans
 
 This tutorial builds a minimal Java 17 Maven application with kiss-server. It is written for AI agents that need to generate correct code and for humans who want to see the intended shape.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Examples
 
 These examples show the current public API.

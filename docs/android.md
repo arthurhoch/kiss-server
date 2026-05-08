@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Android
 
 Android compatibility is a design goal where reasonable, but it is not an official universal support claim yet.

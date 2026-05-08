@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Performance
 
 KissServer should be fast because it is small and direct, not because it hides complexity behind a framework runtime.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Release
 
 KissServer follows semantic versioning.

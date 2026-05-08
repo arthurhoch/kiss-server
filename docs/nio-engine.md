@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # NIO Engine
 
 KissServer uses a Java 17-compatible NIO engine as the primary HTTP/1.1 runtime.

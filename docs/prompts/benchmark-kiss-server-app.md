@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Prompt: Benchmark A kiss-server App
 
 ```text

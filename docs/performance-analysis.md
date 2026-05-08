@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Performance Analysis
 
 This page records the current performance position and the bottlenecks addressed before any new benchmark claims are made.

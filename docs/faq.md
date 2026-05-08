@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # FAQ
 
 ## Is the server engine implemented?

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Fast Path
 
 The fast path is an optional route path for exact, fixed `GET` responses.

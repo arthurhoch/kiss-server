@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # GraalVM Native Image
 
 KissServer is designed to be GraalVM Native Image friendly by default, but official support requires validation with an example application or CI workflow.

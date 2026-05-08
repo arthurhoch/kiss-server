@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # AI Performance Guide
 
 This guide focuses only on generating and tuning performant kiss-server applications.

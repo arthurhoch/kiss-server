@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Executor Model
 
 KissServer separates network I/O from normal application handler execution.

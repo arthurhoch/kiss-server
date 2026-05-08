@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # API
 
 Public API is intentionally small.

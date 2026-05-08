@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Benchmarking
 
 Manual benchmark apps live under `benchmarks/`. They compare kiss-server NIO execution profiles against Undertow and Vert.x reference apps.

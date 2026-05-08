@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Prompt: Generate A kiss-server App
 
 ```text

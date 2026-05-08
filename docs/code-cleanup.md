@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Safe Code Cleanup
 
 KissServer is a small Java 17 HTTP/1.1 server library. Cleanup must preserve parser safety, route behavior, executor ownership, and the published public API.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Configuration
 
 `ServerConfig` is immutable and created with a builder.

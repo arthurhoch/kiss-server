@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Prompt: Optimize A kiss-server App
 
 ```text

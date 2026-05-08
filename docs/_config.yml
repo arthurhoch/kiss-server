@@ -2,8 +2,14 @@ title: KissServer
 description: Tiny zero-dependency Java 17+ HTTP/1.1 server library for simple REST-style applications.
 url: "https://arthurhoch.github.io"
 baseurl: "/kiss-server"
-theme: jekyll-theme-primer
+repo_url: "https://github.com/arthurhoch/kiss-server"
+maven_url: "https://central.sonatype.com/artifact/io.github.arthurhoch/kiss-server"
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Maven Central
 
 Publishing uses Sonatype Central Publisher Portal.

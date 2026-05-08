@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Security
 
 KissServer is designed around explicit limits and zero production dependencies.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # AI Quickstart
 
 Paste this into AI context when generating a kiss-server app.

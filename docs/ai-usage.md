@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Using kiss-server with AI coding agents
 
 This guide teaches AI coding agents how to generate small, correct, and performant applications with kiss-server.

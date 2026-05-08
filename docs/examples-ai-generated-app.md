@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Example AI-Generated App
 
 This is the shape an AI agent should generate for a small Java 17 kiss-server application.
