@@ -59,6 +59,7 @@ server.start(8080).await();
 | [Performance](performance.md) | Performance philosophy |
 | [Performance Analysis](performance-analysis.md) | Current bottlenecks, fixes, and future work |
 | [Benchmarking](benchmarking.md) | Benchmark plan and commands |
+| [Safe Code Cleanup](code-cleanup.md) | Coverage, quality checks, and deletion policy |
 | [Security](security.md) | Limits and safe defaults |
 | [Error Handling](error-handling.md) | Error categories and mapping |
 | [Deployment](deployment.md) | Reverse proxy recommendation |

@@ -276,6 +276,7 @@ These libraries are independent, zero-dependency Java 17+ projects. Use only the
 - [Executor Model](docs/executor-model.md)
 - [Performance](docs/performance.md)
 - [Benchmarking](docs/benchmarking.md)
+- [Safe Code Cleanup](docs/code-cleanup.md)
 - [Android](docs/android.md)
 - [Native Image](docs/native-image.md)
 - [Deployment](docs/deployment.md)
@@ -295,17 +296,24 @@ Version `0.1.0` is published on Maven Central. Release automation remains tag-ba
 
 ```bash
 mvn -B clean verify
+mvn -B test jacoco:report
+mvn -B javadoc:javadoc
 ```
 
-Additional configured profile:
+Additional configured profiles:
 
 ```bash
+mvn -Pspotbugs verify
 mvn -Psecurity verify
 ```
 
 ## Security and Quality
 
-GitHub Actions run CI, CodeQL, GitHub Pages deployment, and Maven Central release readiness workflows. Dependabot tracks Maven and GitHub Actions updates. OWASP Dependency-Check is available through the `security` Maven profile.
+GitHub Actions run CI, CodeQL, GitHub Pages deployment, and Maven Central release readiness workflows. Dependabot tracks Maven and GitHub Actions updates. OWASP Dependency-Check is available through the `security` Maven profile, and SpotBugs is available through the optional `spotbugs` profile.
+
+JaCoCo coverage is generated during `verify`. Read the HTML report at `target/site/jacoco/index.html`; use `target/site/jacoco/jacoco.xml` for Codecov or Sonar if those services are configured later. No coverage badge is shown until a real external coverage service is configured.
+
+Before deleting code, follow [Safe Code Cleanup](docs/code-cleanup.md): distinguish internal code from public API, search source/tests/docs/examples/benchmarks, inspect coverage, run Javadocs, and document user-visible removals in `CHANGELOG.md`. Before release, run the normal build, Javadocs, coverage generation, and any relevant optional quality/security profiles.
 
 ## License
 

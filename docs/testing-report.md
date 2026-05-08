@@ -1,6 +1,6 @@
 # Testing Report
 
-Date: 2026-05-04
+Date: 2026-05-08
 
 ## What Was Tested
 
@@ -11,28 +11,25 @@ Date: 2026-05-04
 - HTTP/1.1 response writer: common statuses, CRLF formatting, `Content-Length`, `Content-Type`, `Connection`, HEAD output, 204 output, exact body bytes, and duplicate `Content-Length` prevention with case-insensitive header names.
 - Real socket behavior: start on port `0`, stop, GET `/health`, POST `/echo`, path params, query string preservation, 404, 405, safe 500 responses, malformed requests, oversized headers, oversized bodies, keep-alive, `Connection: close`, `maxKeepAliveRequests`, idle timeout, fast path, rejected executor handling, user executor ownership, repeated start/stop, and small concurrent load.
 - Runtime helpers: buffer pool acquire/release/reuse, pool max size, input/output buffer bounds, and connection limiter capacity/accounting.
-- Project sanity: parser source avoids forbidden line parsing APIs, workflows use Java 17/21 and Maven, Pages uses `docs/`, Maven Central secrets are placeholders, Dependabot monitors Maven and Actions, and Native Image docs do not claim official support.
-- SAST hygiene: Snyk Code runs clean, with intentional cleartext localhost protocol probes isolated in a narrowly ignored test helper.
+- Project sanity: parser source avoids forbidden line parsing APIs, workflows use Java 17/21 and `mvn -B clean verify`, Pages uses `docs/`, Maven Central secrets are placeholders, Dependabot monitors Maven and Actions, and Native Image docs do not claim official support.
+- Coverage: JaCoCo XML and HTML reports are generated under `target/site/jacoco/`.
 
 ## Commands Run
 
 ```bash
-mvn -B test
-mvn -B verify
 mvn -B clean verify
-mvn -B dependency:tree -Dscope=compile
-rg -n "String\\.split|new Scanner|BufferedReader|java\\.util\\.regex|Pattern\\.compile" src/main/java/io/github/arthurhoch/kiss/server/protocol/http11 src/main/java/io/github/arthurhoch/kiss/server/routing src/main/java/io/github/arthurhoch/kiss/server/http
-snyk code test
+mvn -B javadoc:javadoc
+mvn -B -Pspotbugs -DskipTests verify
+mvn -B -Psecurity -Ddependency-check.skip=true -DskipTests verify
 ```
 
 Results:
 
-- `mvn -B test`: passing, 45 tests, 0 failures, 0 errors.
-- `mvn -B verify`: passing, jar/source/javadoc jars built.
-- `mvn -B clean verify`: passing from a clean workspace, 45 tests, 0 failures, 0 errors.
-- `mvn -B dependency:tree -Dscope=compile`: no compile-scope dependencies beyond `kiss-server`.
-- Forbidden parser API scan: no matches.
-- `snyk code test`: passing, 0 issues.
+- `mvn -B clean verify`: passing from a clean workspace, 60 tests, 0 failures, 0 errors.
+- `mvn -B javadoc:javadoc`: passing.
+- `mvn -B -Pspotbugs -DskipTests verify`: passing profile validation.
+- `mvn -B -Psecurity -Ddependency-check.skip=true -DskipTests verify`: passing profile validation with Dependency-Check database scanning intentionally skipped.
+- JaCoCo reports: `target/site/jacoco/jacoco.xml` and `target/site/jacoco/index.html` generated.
 
 ## Important Edge Cases Covered
 

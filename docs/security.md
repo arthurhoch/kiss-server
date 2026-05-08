@@ -27,3 +27,27 @@ KissServer is designed around explicit limits and zero production dependencies.
 ## Reporting
 
 See [../SECURITY.md](../SECURITY.md).
+
+## Quality And Coverage
+
+Normal CI runs the fast Maven build:
+
+```bash
+mvn -B clean verify
+```
+
+JaCoCo coverage is generated during `verify`:
+
+```text
+target/site/jacoco/jacoco.xml
+target/site/jacoco/index.html
+```
+
+Optional local security and static-analysis checks are:
+
+```bash
+mvn -Psecurity verify
+mvn -Pspotbugs verify
+```
+
+Use [code-cleanup.md](code-cleanup.md) before deleting code, especially public API, parser logic, route handling, or benchmark-referenced behavior.

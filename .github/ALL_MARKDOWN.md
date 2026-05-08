@@ -138,6 +138,7 @@ Manual index of every Markdown file in the KissServer repository and its purpose
 | `docs/performance.md` | Performance philosophy |
 | `docs/performance-analysis.md` | Current performance bottlenecks, fixes, and future work |
 | `docs/benchmarking.md` | Benchmarking plan |
+| `docs/code-cleanup.md` | Safe code cleanup, coverage, and deletion policy |
 | `docs/security.md` | Security design |
 | `docs/error-handling.md` | Error handling guide |
 | `docs/routing.md` | Routing guide |

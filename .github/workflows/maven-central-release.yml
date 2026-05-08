@@ -32,7 +32,7 @@ jobs:
           server-password: MAVEN_CENTRAL_PASSWORD
 
       - name: Run tests
-        run: mvn -B verify
+        run: mvn -B clean verify
 
       - name: Import GPG key
         run: echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import

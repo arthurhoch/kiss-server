@@ -28,7 +28,7 @@ class ProjectSanityTest {
         String release = Files.readString(Path.of(".github/workflows/maven-central-release.yml"));
         String dependabot = Files.readString(Path.of(".github/dependabot.yml"));
 
-        assertTrue(ci.contains("mvn -B verify"));
+        assertTrue(ci.contains("mvn -B clean verify"));
         assertTrue(ci.contains("'17'"));
         assertTrue(ci.contains("'21'"));
         assertTrue(pages.contains("source: docs"));
