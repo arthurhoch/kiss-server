@@ -265,6 +265,7 @@ These libraries are independent, zero-dependency Java 17+ projects. Use only the
 
 - [Documentation Index](docs/index.md)
 - [GitHub Pages](https://arthurhoch.github.io/kiss-server)
+- [Versioned AI Skills](docs/skills/index.md)
 - [Getting Started](docs/getting-started.md)
 - [API](docs/api.md)
 - [Examples](docs/examples.md)

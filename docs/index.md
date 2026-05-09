@@ -65,6 +65,7 @@ server.start(8080).await();</code></pre>
   <div class="doc-grid">
     <a href="getting-started.html">Getting Started<span>Install and create the first route.</span></a>
     <a href="api.html">API Reference<span>Public server, routing, HTTP, and runtime types.</span></a>
+    <a href="skills/index.html">AI Skills<span>Versioned Markdown skill files for AI-assisted usage.</span></a>
     <a href="configuration.html">Configuration<span>ServerConfig options and limits.</span></a>
     <a href="examples.html">Examples<span>Copyable route examples.</span></a>
     <a href="http11.html">HTTP/1.1<span>Protocol scope and parser behavior.</span></a>

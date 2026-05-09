@@ -162,3 +162,11 @@ Manual index of every Markdown file in the KissServer repository and its purpose
 | `docs/prompts/add-route.md` | Copy-paste prompt for adding a route correctly |
 | `docs/prompts/optimize-kiss-server-app.md` | Copy-paste prompt for optimizing a kiss-server app |
 | `docs/prompts/benchmark-kiss-server-app.md` | Copy-paste prompt for fair benchmarking |
+
+## Versioned AI Skills
+
+| File | Purpose |
+|------|---------|
+| `.github/skills-release-policy.md` | Release policy requiring versioned AI skill files for each tag |
+| `docs/skills/index.md` | GitHub Pages index of downloadable AI skill files by version |
+| `docs/skills/v0.1.0.md` | Versioned Markdown AI skill for KissServer release 0.1.0 |

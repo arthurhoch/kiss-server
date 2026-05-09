@@ -44,3 +44,7 @@ server.start(8080).await();
 ## Testing
 
 JUnit Jupiter. Tests must be deterministic and must not require internet access. Run `mvn -B verify`.
+
+## Versioned AI Skills
+
+Before creating a release tag, read `.github/skills-release-policy.md` and update the versioned Markdown skill artifacts under `docs/skills/`. Add a new `docs/skills/vX.Y.Z.md` file, update `docs/skills/index.md`, keep older skill files, and verify the complete public API/member index for the release.
