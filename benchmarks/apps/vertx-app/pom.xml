@@ -15,7 +15,7 @@
         <java.version>17</java.version>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vertx.version>5.0.11</vertx.version>
+        <vertx.version>5.0.12</vertx.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-shade-plugin.version>3.6.2</maven-shade-plugin.version>
     </properties>
